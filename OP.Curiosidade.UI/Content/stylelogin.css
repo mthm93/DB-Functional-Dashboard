@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.login {
+    height: 100vh;
+    background: linear-gradient(120deg, #41CC97, #4F806D);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login__container {
+    min-height: 400px;
+    width: 350px;
+    background-color: white;
+    box-sizing: border-box;
+    box-shadow: 5px 5px 15px #3c61534d;
+    padding: 32px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.onion {
+    margin-left: 1rem;
+    margin-right: 2rem;
+}
+
+.login__title {
+    background: linear-gradient(120deg, #41CC97, #8adbbc);
+    border-radius: 10px;
+    width: 70%;
+    height: 80px;
+    padding-right: 80px;
+    font-size: 20px;
+    font-weight: 500;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    margin-bottom: 32px;
+    color: #303030;
+}
+
+.login__form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.login__input {
+    height: 48px;
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: 8px;
+    border: unset;
+    outline: none;
+}
+
+.login__input-border {
+    height: 1px;
+    width: 100%;
+    margin-bottom: 16px;
+    background-color: #CFCFCF;
+    transition: .3s ease-in-out;
+}
+
+.login__input-border::after {
+    content: '';
+    display: block;
+    height: 1px;
+    width: 0;
+    margin-bottom: 16px;
+    background: linear-gradient(120deg, #41CC97, #4F806D);
+    transition: .3s ease-in-out;
+}
+
+.login__input:focus + .login__input-border::after {
+    width: 100%; 
+}
+
+.login__submit {
+    height: 48px;
+    width: 100%;
+    outline: none;
+    background: linear-gradient(120deg, #77c0a4, #52FFBE, #77c0a4);
+    background-size: 200%;
+    margin-bottom: 32px;
+    color: #303030;
+    font-size: 16px;
+    font-weight: bold;
+    border: unset;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: .5s ease-in-out;
+}
+
+.login__submit:hover {
+    background-position: right;
+}
+
+.login__reset, .user__reg {
+    font-weight: 700;
+    margin-bottom: 1rem;
+    font-size: 12px;
+    color: #929292;
+    text-decoration: none;
+}

@@ -1,0 +1,477 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+:root {
+    --green: #36ac7e;
+    --white: #fff;
+    --grey: #f5f5f5;
+    --black1: #222;
+    --black2: #999;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Conteúdo da Barra Lateral */
+
+nav {
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    background: var(--green);
+    border-left: 10px solid var(--green);
+    transition: 0.5s;
+    overflow: hidden;
+}
+nav ul {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+nav ul li {
+    position: relative;
+    width: 100%;
+    list-style: none;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+nav ul li:nth-child(1) {
+    margin-bottom: 40px;
+    pointer-events: none;
+}
+nav ul li a {
+    margin: auto;
+    position: relative;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: var(--white);
+}
+nav ul li a .icon {
+    position: relative;
+    display: block;
+    min-width: 60px;
+    min-height: 60px;
+    line-height: 77px;
+    text-align: center;
+}
+nav ul li a .icon ion-icon {
+    font-size: 1.75em;
+}
+nav ul li a .title {
+    position: relative;
+    display: block;
+    padding: 0 10px;
+    height: 60px;
+    line-height: 60px;
+    text-align: start;
+    white-space: nowrap;
+}
+
+/* Animações da Barra Lateral */
+
+main.active {
+    width: calc(100% - 80px);
+    left: 80px;
+}
+nav.active {
+    width: 80px;
+}
+nav ul li:hover a, aside ul li.hovered a {
+    color: var(--green)
+}
+nav ul li:hover, aside ul li.hovered {
+    background: var(--white);
+}
+nav ul li:hover a::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: -50px;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    border-radius: 50%;
+    box-shadow: 35px 35px 0 10px var(--white);
+}
+nav ul li:hover a::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: -50px;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    border-radius: 50%;
+    box-shadow: 35px -35px 0 10px var(--white);
+}
+
+/* Conteúdo Principal da Dashboard */
+
+main {
+    position: absolute;
+    width: calc(100% - 300px);
+    left: 300px;
+    min-height: 100vh;
+    background: var(--white);
+    transition: 0.5s;
+}
+.topbar {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+.toggle {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5em;
+    cursor: pointer;
+}
+
+.cadastrosRecentes .statusAtivo, .statusInativo {
+    cursor: pointer; 
+    text-decoration: none;
+}
+
+.cadastrosRecentes .statusInativo {
+    border: none;
+}
+
+.cadastrosRecentes .statusAtivo:hover, .statusInativo:hover {
+    box-shadow: 5px 10px 25px rgba(0, 0, 0, 0.400);
+    transition: .3s ease-in-out;
+}
+
+.cadastrosRecentes .align__end {
+    width: 50px;
+}
+
+.search__btn {
+    cursor: pointer;
+}
+
+/* Barra de Pesquisa */
+
+.pesquisa {
+    position: relative;
+    width: 400px;
+    margin: 0 10px;
+}
+.pesquisa label {
+    position: relative;
+    width: 100%;
+}
+.pesquisa label input {
+    width: 100%;
+    height: 40px;
+    border-radius: 40px;
+    padding: 5px 20px;
+    padding-left: 35px;
+    font-size: 16px;
+    outline: none;
+    border: 1px solid var(--black2);
+}
+.pesquisa label ion-icon {
+    position: absolute;
+    top: 0;
+    left: 10px;
+    font-size: 1.2em;
+}
+.user {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* Imagem do Usuário */
+
+.user img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Cards */
+
+.cardBox {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 30px;
+}
+.cardBox .card {
+    position: relative;
+    background: var(--white);
+    padding: 30px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    box-shadow: 0 7px 25px rgba(0,0,0,0.08);
+}
+.cardBox .card .numbers {
+    position: relative;
+    font-weight: 500;
+    font-size: 2.5em;
+    color: var(--green);
+}
+.cardBox .card .cardName {
+    color: var(--black2);
+    font-size: 1.1em;
+    margin-top: 5px;
+}
+.cardBox .card .iconBx {
+    font-size: 3.5em;
+    color: var(--black2);
+}
+.cardBox .card:hover {
+    background: var(--green);
+}
+.cardBox .card:hover .numbers,
+.cardBox .card:hover .cardName,
+.cardBox .card:hover .iconBx {
+    color: var(--white);
+    transition: .3s ease-in-out;
+}
+
+/* Página de Cadastro */
+
+.paginaCadastro {
+    background-color: var(--white);
+    box-shadow: 5px 10px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 10px;
+    margin: 1rem auto;
+    margin-left: 1rem;
+    max-width: 97.8%;
+}
+article header {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+article header h3 {
+    background: linear-gradient(120deg, #41CC97, #ffffff);
+    padding: 10px 70px;
+    border-bottom-left-radius: 8px;
+}
+article section .fatos input {
+    background: rgb(241, 241, 241);
+    border-width: 1px;
+    border-radius: 3px;
+    min-height: 2rem;
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 5px;
+    margin-right: 1rem;
+}
+.checkboxCadastro {
+    width: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 1rem;
+}
+.fatos label, .interesses label, .sentimentos label, .valores label {
+    font-size: 14px;
+}
+.linhaVerde {
+    border: 0;
+    height: 5px;
+    background: linear-gradient(120deg, #41CC97, #ffffff);
+    width: 66px;
+    margin-left: 0px;
+    margin-top: 5px;
+    margin-bottom: 1rem;
+}
+.mesmaLinha {
+    display: flex;
+    width: 100%;
+    gap: 1.2rem;
+}
+.cadastroEmail {
+    width: 90%;
+}
+#interesses, #sentimentos , #valores , #outrasInformacoes {
+    border-width: 1px;
+    border-radius: 3px;
+    padding: 5px;
+    background-color: rgb(241, 241, 241);
+    width: 100%;
+    height: 80px;
+    resize: vertical;
+}
+.btnCadastro {
+    display: flex;
+    justify-content: center;
+}
+.botaoCadastro {
+    padding: 15px 80px;
+    border: 5px;
+    background: var(--green);
+    text-decoration: none;
+    color: var(--white);
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+.botaoCadastro:hover {
+    background: #38964f;
+    box-shadow: 5px 10px 25px rgba(0, 0, 0, 0.247);
+    color: var(--white);
+    transition: .3s ease-in-out;
+}
+
+/* Lista de Cadastros Recentes + Tabela da página de Relatório */
+
+section {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    gap: 30px;
+    margin-top: 10px;
+}
+section table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+section table thead td {
+    font-weight: 600;
+}
+section .cadastrosRecentes table tr, .relatorioCadastro table tr {
+    color: var(--black1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+section .cadastrosRecentes table tr:last-child, .relatorioCadastro table tr:last-child {
+    border-bottom: none;
+}
+section .cadastrosRecentes table tbody tr:hover, .relatorioCadastro table tbody tr:hover {
+    background: var(--green);
+    color: var(--white);
+    transition: .3s ease-in-out;
+}
+section .cadastrosRecentes table tr td, .relatorioCadastro table tr td {
+    padding: 10px;
+}
+section .cadastrosRecentes table tr td:last-child, .relatorioCadastro table tr td:last-child {
+    text-align: end;
+}
+.cadastrosRecentes {
+    position: relative;
+    display: grid;
+    min-height: 400px;
+    background: var(--white);
+    padding: 20px;
+    box-shadow: 0 7px 25px rgba(0,0,0,0.08);
+    border-radius: 20px;
+}
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.cardHeader h2 {
+    font-weight: 600;
+    color: var(--green);
+}
+.btn {
+    position: relative;
+    padding: 5px 10px;
+    background: var(--green);
+    text-decoration: none;
+    color: var(--white);
+    border-radius: 6px;
+}
+.statusAtivo {
+    padding: 2px 4px;
+    background: #1579a7;
+    color: var(--white);
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
+.statusInativo {
+    padding:2px 4px;
+    background: crimson;
+    color: var(--white);
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Página de Relatório */
+
+.paginaRelatorios {
+    background-color: var(--white);
+    box-shadow: 5px 10px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 10px;
+    margin: 1rem auto;
+    margin-left: 1rem;
+    max-width: 97.8%;
+}
+
+.paginaRelatorios a {
+    text-decoration: none;
+}
+
+/* Página de Impressão de Relatório */
+
+.impressaoRelatorio {
+    display: flex;
+    justify-content: space-between;
+}
+
+.impressaoRelatorio .btnCadastro {
+    height: 15px;
+}
+
+.impressaoRelatorio .btnCadastro .botaoCadastro {
+    display: flex;
+    align-items: center;
+    height: 15px;
+    cursor: pointer;
+}
+
+td .align__end {
+    width: 50px !important;
+}
+
+@media print {
+    main {
+        width: 100%;
+        position: relative !important;
+        left: 0px;
+    }
+    .impressaoRelatorio, .navMenu, .topbar, .tituloRelatorio {
+        display: none;
+    }
+}
+
+
+
